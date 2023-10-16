@@ -14,6 +14,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let size = UIScreen.main.bounds.size
+//        print("x=\(size.width) y=\(size.height)")
+//        print("x=\(UIScreen.main.nativeBounds.width) y=\(UIScreen.main.nativeBounds.height)")
+        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
