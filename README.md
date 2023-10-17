@@ -1,29 +1,31 @@
-## [Project 10: Names to Faces](https://www.hackingwithswift.com/read/10/overview)
+## [Project 11: Pachinko](https://www.hackingwithswift.com/read/11/overview)
 Written by [Paul Hudson](https://www.hackingwithswift.com/about)  ![twitter16](https://github.com/juliangyurov/PH-Project6a/assets/13259596/445c8ea0-65c4-4dba-8e1f-3f2750f0ef51)
   [@twostraws](https://twitter.com/twostraws)
 
-**Description:** Get started with `UICollectionView` and the photo library.
+**Description:** Dive into SpriteKit to try your hand at fast 2D games.
 
 - Setting up
 
-- Designing `UICollectionView` cells
+- Falling boxes: SKSpriteNode, UITouch, SKPhysicsBody
 
-- `UICollectionView` data sources
+- Bouncing balls: circleOfRadius
 
-- Importing photos with `UIImagePickerController`
+- Spinning slots: SKAction
 
-- Custom subclasses of `NSObject`
+- Collision detection: SKPhysicsContactDelegate
 
-- Connecting up the people
+- Scores on the board: SKLabelNode
+
+- Special effects: SKEmitterNode
 
 - Wrap up
 
- ## [Review what you learned](https://www.hackingwithswift.com/review/hws/project-10-names-to-faces)
+ ## [Review what you learned](https://www.hackingwithswift.com/review/hws/project-11-names-to-faces)
 
 **Challenge**
 
-1. Add a second `UIAlertController` that gets shown when the user taps a picture, asking them whether they want to rename the person or delete them.
+1. The pictures we’re using in have other ball pictures rather than just “ballRed”. Try writing code to use a random ball color each time they tap the screen.
 
-2. Try using `picker.sourceType = .camera` when creating your image picker, which will tell it to create a new image by taking a photo. This is only available on devices (not on the simulator) so you might want to check the return value of `UIImagePickerController.isSourceTypeAvailable()` before trying to use it!
+2. Right now, users can tap anywhere to have a ball created there, which makes the game too easy. Try to force the Y value of new balls so they are near the top of the screen.
 
-3. Modify Project1 so that it uses a collection view controller rather than a table view controller. I recommend you keep a copy of your original table view controller code so you can refer back to it later on.
+3. Give players a limit of five balls, then remove obstacle boxes when they are hit. Can they clear all the pins with just five balls? You could make it so that landing on a green slot gets them an extra ball.
