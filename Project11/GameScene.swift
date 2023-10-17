@@ -92,6 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball.physicsBody?.restitution = 0.4
                 ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
                 ball.position = location
+                ball.position.y = 768-ball.size.width / 2.0
                 
                 let spin = SKAction.rotate(byAngle: .pi, duration: 1)
                 let spinForever = SKAction.repeatForever(spin)
