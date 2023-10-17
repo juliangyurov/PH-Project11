@@ -18,12 +18,12 @@ Written by [Paul Hudson](https://www.hackingwithswift.com/about)  ![twitter16](h
 
 - Wrap up
 
- ## [Review what you learned](https://www.hackingwithswift.com/review/hws/project-10-names-to-faces)
+ ## [Review what you learned](https://www.hackingwithswift.com/review/hws/project-11-names-to-faces)
 
 **Challenge**
 
-1. Add a second `UIAlertController` that gets shown when the user taps a picture, asking them whether they want to rename the person or delete them.
+1. The pictures we’re using in have other ball pictures rather than just “ballRed”. Try writing code to use a random ball color each time they tap the screen.
 
-2. Try using `picker.sourceType = .camera` when creating your image picker, which will tell it to create a new image by taking a photo. This is only available on devices (not on the simulator) so you might want to check the return value of `UIImagePickerController.isSourceTypeAvailable()` before trying to use it!
+2. Right now, users can tap anywhere to have a ball created there, which makes the game too easy. Try to force the Y value of new balls so they are near the top of the screen.
 
-3. Modify Project1 so that it uses a collection view controller rather than a table view controller. I recommend you keep a copy of your original table view controller code so you can refer back to it later on.
+3. Give players a limit of five balls, then remove obstacle boxes when they are hit. Can they clear all the pins with just five balls? You could make it so that landing on a green slot gets them an extra ball.
