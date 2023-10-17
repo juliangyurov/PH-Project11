@@ -87,6 +87,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ball.physicsBody?.restitution = 0.4
                 ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
                 ball.position = location
+                
+                let spin = SKAction.rotate(byAngle: .pi, duration: 1)
+                let spinForever = SKAction.repeatForever(spin)
+                ball.run(spinForever)
+                
                 ball.name = "ball"
                 addChild(ball)
             }
@@ -144,6 +149,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func destroy(ball: SKNode) {
+        if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
+            fireParticles.position = ball.position
+            addChild(fireParticles)
+        }
         ball.removeFromParent()
     }
     
