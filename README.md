@@ -1,20 +1,22 @@
-## [Project 10: Names to Faces](https://www.hackingwithswift.com/read/10/overview)
+## [Project 11: Pachinko](https://www.hackingwithswift.com/read/11/overview)
 Written by [Paul Hudson](https://www.hackingwithswift.com/about)  ![twitter16](https://github.com/juliangyurov/PH-Project6a/assets/13259596/445c8ea0-65c4-4dba-8e1f-3f2750f0ef51)
   [@twostraws](https://twitter.com/twostraws)
 
-**Description:** Get started with `UICollectionView` and the photo library.
+**Description:** Dive into SpriteKit to try your hand at fast 2D games.
 
 - Setting up
 
-- Designing `UICollectionView` cells
+- Falling boxes: SKSpriteNode, UITouch, SKPhysicsBody
 
-- `UICollectionView` data sources
+- Bouncing balls: circleOfRadius
 
-- Importing photos with `UIImagePickerController`
+- Spinning slots: SKAction
 
-- Custom subclasses of `NSObject`
+- Collision detection: SKPhysicsContactDelegate
 
-- Connecting up the people
+- Scores on the board: SKLabelNode
+
+- Special effects: SKEmitterNode
 
 - Wrap up
 
