@@ -10,10 +10,14 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabel: SKLabelNode!
-    
+    var numBalls = 5 {
+        didSet {
+            scoreLabel.text = "Balls: \(numBalls) Score: \(score)"
+        }
+    }
     var score = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            scoreLabel.text = "Balls: \(numBalls) Score: \(score)"
         }
     }
     
@@ -42,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(background)
         
         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
-        scoreLabel.text = "Score: 0"
+        scoreLabel.text = "Balls: \(numBalls) Score: \(score)"
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: 980, y: 700)
         addChild(scoreLabel)
@@ -84,22 +88,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 box.position = location
                 box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
                 box.physicsBody?.isDynamic = false
+                box.name = "box"
                 addChild(box)
             }else{
-                
-                let ball = SKSpriteNode(imageNamed: balls.randomElement() ?? "ballRed")
-                ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-                ball.physicsBody?.restitution = 0.4
-                ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
-                ball.position = location
-                ball.position.y = 768-ball.size.width / 2.0
-                
-                let spin = SKAction.rotate(byAngle: .pi, duration: 1)
-                let spinForever = SKAction.repeatForever(spin)
-                ball.run(spinForever)
-                
-                ball.name = "ball"
-                addChild(ball)
+                if numBalls > 0 {
+                    let ball = SKSpriteNode(imageNamed: balls.randomElement() ?? "ballRed")
+                    ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+                    ball.physicsBody?.restitution = 0.4
+                    ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
+                    ball.position = location
+                    ball.position.y = 768-ball.size.width / 2.0
+                    
+                    let spin = SKAction.rotate(byAngle: .pi, duration: 1)
+                    let spinForever = SKAction.repeatForever(spin)
+                    ball.run(spinForever)
+                    
+                    ball.name = "ball"
+                    addChild(ball)
+                    
+                    if numBalls > 0 { numBalls -= 1}
+                }
             }
         }
         
@@ -151,6 +159,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }else if object.name == "bad" {
             destroy(ball: ball)
             score -= 1
+        }else if object.name == "box" {
+            object.removeFromParent()
         }
     }
     
